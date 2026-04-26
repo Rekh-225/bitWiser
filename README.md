@@ -2,7 +2,9 @@
 
 A strategic C# firefighting simulation bot that controls a 3-unit emergency response team made up of a drone, a fire truck, and a firefighter.
 
-The AI is designed to explore the map, detect fires, remember important locations, refill water intelligently, avoid obstacles, and coordinate units to extinguish fires as efficiently as possible.
+The AI explores the map, detects fires, remembers important locations, refills water intelligently, avoids obstacles, and coordinates units to extinguish fires as efficiently as possible.
+
+The project also includes a modern 2D dashboard viewer that visualizes the whole simulation on a plane, making it easier to understand unit movement, fires, water sources, explored areas, and AI decisions in real time.
 
 ---
 
@@ -17,7 +19,36 @@ Each unit has a different role:
 - **Fire Truck**: Large water capacity unit responsible for heavy firefighting and refilling.
 - **Firefighter**: Ground unit with strong direct firefighting behavior and no water refill dependency.
 
-The AI combines memory, pathfinding, role-based behavior, water management, and stuck recovery to make the team act smarter than a simple reactive bot.
+The AI combines memory, pathfinding, role-based behavior, water management, stuck recovery, and dashboard visualization to create a smart multi-unit firefighting system.
+
+---
+
+## Modern 2D Dashboard Viewer
+
+The project includes a modern UI dashboard that displays the simulation in a 2D plane.
+
+The viewer helps visualize:
+
+- Unit positions
+- Unit movement
+- Drone, truck, and firefighter behavior
+- Fire locations
+- Water sources
+- Known map information
+- Explored and unexplored areas
+- AI states
+- Current targets
+- Debugging information
+- Simulation progress
+
+This makes it easier to debug the AI, understand decisions, and watch the firefighting team operate visually instead of only reading console output.
+
+Relevant files:
+
+- `Viewer/`
+- `dashboard.html`
+- `DashboardWriter.cs`
+- `dashboard-state.js`
 
 ---
 
@@ -121,21 +152,6 @@ This prevents units from repeating the same failed command forever.
 
 ---
 
-### Dashboard Support
-
-The project includes dashboard-related files for visualizing or debugging the simulation.
-
-Relevant files include:
-
-- `dashboard.html`
-- `DashboardWriter.cs`
-- `ConsoleRenderer.cs`
-- `dashboard-state.js`
-
-These help inspect game state, unit behavior, and AI decisions during development.
-
----
-
 ## Main Files
 
 | File | Purpose |
@@ -144,14 +160,15 @@ These help inspect game state, unit behavior, and AI decisions during developmen
 | `GameState.cs` | Stores known fires, water, units, map state, and memory |
 | `Models.cs` | Data models used by the simulation |
 | `Program.cs` | Main application entry point |
-| `DashboardWriter.cs` | Writes dashboard/debugging data |
-| `ConsoleRenderer.cs` | Console-based rendering/debug output |
-| `dashboard.html` | Dashboard viewer |
+| `DashboardWriter.cs` | Writes dashboard/debugging state |
+| `ConsoleRenderer.cs` | Console-based rendering and debug output |
+| `dashboard.html` | Browser-based dashboard viewer |
+| `dashboard-state.js` | Generated dashboard state data |
+| `Viewer/` | Modern 2D UI dashboard viewer |
 | `FireClient.csproj` | C# project file |
 | `FireClient.sln` | Visual Studio solution file |
 | `Proto/` | Protocol or generated communication files |
 | `Assets/` | Project assets |
-| `Viewer/` | Viewer-related files |
 
 ---
 
@@ -205,7 +222,8 @@ This makes the bot reactive when needed, but also strategic over time.
 - Priority queue search
 - Finite-state AI
 - Grid-based simulation logic
-- Dashboard/debug visualization
+- Modern 2D dashboard UI
+- Debug visualization
 
 ---
 
