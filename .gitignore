@@ -1,0 +1,15 @@
+@"
+bin/
+obj/
+.dotnet/
+.buildcheck/
+
+*.user
+*.suo
+*.log
+
+.vs/
+.vscode/
+
+dashboard-state.js
+"@ | Out-File -Encoding utf8 .gitignore
